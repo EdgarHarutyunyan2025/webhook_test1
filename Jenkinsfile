@@ -1,7 +1,7 @@
 pipeline {
     agent any
     triggers {
-        GenericWebhookTrigger(
+        GenericTrigger(
             genericVariables: [
                 [key: 'payload', value: '$.payload']
             ],
@@ -12,7 +12,7 @@ pipeline {
         stage('Process Webhook Data') {
             steps {
                 script {
-                    // Доступ к данным JSON
+                    // Получаем данные из payload и выводим
                     def payload = readJSON text: params.payload
                     echo "Received payload: ${payload}"
                 }
