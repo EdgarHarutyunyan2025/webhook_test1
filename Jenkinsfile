@@ -5,7 +5,7 @@ pipeline {
         stage('test for webhook') {
             steps {
                 script {
-                    helloWorld()
+                    helloWorldSimple()
                 }
             }
         }
