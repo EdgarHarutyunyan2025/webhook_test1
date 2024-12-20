@@ -1,13 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage("pylint test") {
-            steps{
+        stage('Display JSON with cat') {
+            steps {
                 script {
-                    echo "hello world"
-                }    
+                    def filePath = "${env.WORKSPACE}/file.json"
+                    
+                    sh "cat ${filePath}"
+                }
             }
         }
     }
 }
-
