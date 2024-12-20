@@ -1,12 +1,11 @@
 pipeline {
     agent any
     stages {
-        stage('Display JSON with cat') {
+        stage('Receive Webhook') {
             steps {
                 script {
-                    def filePath = "${env.WORKSPACE}/file.json"
-                    
-                    sh "cat ${filePath}"
+                    def payload = request.JSON
+                    echo "Received JSON payload: ${payload}"
                 }
             }
         }
